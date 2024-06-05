@@ -6,6 +6,7 @@ import Col from 'react-bootstrap/Col';
 import { useState } from 'react';
 import { fetchWeatherData } from './utilities.js';
 import Weather from './Weather.js';
+import NewLocation from './NewLocation.js';
 
 function App() {
   const [cities, setCities] = useState([
@@ -30,6 +31,7 @@ function App() {
   ]);
 
   const [weather, setWeather] = useState(null);
+  const [isAddingActive, setIsAddingActive ] = useState(false);
 
   const [selectedCity, setSelectedCity] = useState('');
 
