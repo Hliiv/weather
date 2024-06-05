@@ -1,10 +1,10 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import {useState} from 'react'
-import {fetchWeatherData} from './utilities.js'
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import { useState } from 'react';
+import { fetchWeatherData } from './utilities.js';
 import Weather from './Weather.js';
 
 function App() {
@@ -29,36 +29,42 @@ function App() {
     },
   ]);
 
-  const [weather, setWeather] = useState(null)
+  const [weather, setWeather] = useState(null);
+
+  const [selectedCity, setSelectedCity] = useState('');
 
   const rowClicked = async (id) => {
-    console.log('Click on row ' + cities[id].lat)
+    console.log('Click on row ' + cities[id].lat);
     const dataObj = await fetchWeatherData({
       lat: cities[id].lat,
       long: cities[id].long,
-    })
-    console.log(dataObj)
-    setWeather(dataObj)
-  }
+      
+    });
+    console.log(dataObj);
+    
+    setWeather(dataObj);
+    
+    setSelectedCity(cities[id].name);
+  };
 
   return (
     <>
-    <Container>
-      <Row>
-        <Col>
-          <h1>Cities</h1>
-          {cities.map((city, index) => (
-            <div key={index} onClick={() => rowClicked(index)}>
-              {city.name}
-            </div>
-          ))}
-        </Col>
-        <Col>
-          <h1>Current weather in </h1>
-          <Weather weather={weather} />
-        </Col>
-      </Row>
-    </Container>
+      <Container>
+        <Row>
+          <Col>
+            <h1>Cities</h1>
+            {cities.map((city, index) => (
+              <div key={index} onClick={() => rowClicked(index)}>
+                {city.name}
+              </div>
+            ))}
+          </Col>
+          <Col>
+            <h1>Current weather in </h1>
+            <Weather weather={weather} selectedCity={selectedCity} />
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 }
