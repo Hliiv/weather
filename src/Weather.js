@@ -53,7 +53,7 @@ function Weather({ weather, selectedCity }) {
           <div>Wind speed: {weather.current_weather.windspeed}</div>
           <div>Apparent Temperature: {weather.current_weather.apparenttemperature}</div>
           <div>Weather code: {weather.current_weather.weathercode}</div>
-          <div>Visibility: {weather.current_weather.visibility}</div>
+          <div>Showers: {weather.current_weather.showers}</div>
         </Col>
       </Row>
       
