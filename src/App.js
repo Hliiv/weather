@@ -60,7 +60,7 @@ function App() {
             ))}
           </Col>
           <Col>
-            <h1>Current weather in </h1>
+            <h1>Weather </h1>
             <Weather weather={weather} selectedCity={selectedCity} />
           </Col>
         </Row>

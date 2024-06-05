@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Row from 'react-bootstrap/esm/Row';
 import Col from 'react-bootstrap/esm/Col';
-import './App.css'; 
+import './App.css';
 
 function Weather({ weather, selectedCity }) {
- 
+
   const [cityname, setCityname] = useState('');
 
   useEffect(() => {
@@ -20,18 +20,20 @@ function Weather({ weather, selectedCity }) {
   }
 
   let backgroundStyle = 'defaultStyle';
+
   const temperature = weather.current_weather.temperature;
   const windspeed = weather.current_weather.windspeed;
-  
-  
+
+
 
   if (temperature > 24) {
     backgroundStyle = 'beach';
   } else if (temperature < 0) {
     backgroundStyle = 'cold';
   }
- if (windspeed >10) {
-  backgroundStyle ='windy';}
+  if (windspeed > 10) {
+    backgroundStyle = 'windy';
+  }
 
 
   return (
@@ -51,12 +53,10 @@ function Weather({ weather, selectedCity }) {
         <Col>
           <div>Temperature: {weather.current_weather.temperature}</div>
           <div>Wind speed: {weather.current_weather.windspeed}</div>
-          <div>Apparent Temperature: {weather.current_weather.apparenttemperature}</div>
           <div>Weather code: {weather.current_weather.weathercode}</div>
-          <div>Showers: {weather.current_weather.showers}</div>
+          <div>Winddirection {weather.current_weather.winddirection}</div>
         </Col>
       </Row>
-      
     </div>
   );
 }
