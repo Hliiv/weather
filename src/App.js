@@ -87,8 +87,7 @@ return (
             }>Add new city</button>
         </Col>
         <Col>
-
-          <rightPaneJsx selectedCity={selectedCity} />
+           <rightPaneJsx selectedCity={selectedCity} />
         </Col>
       </Row>
     </Container>

@@ -1,5 +1,5 @@
 import { useState } from "react"
-function NewLocation(addLocation) {
+function NewLocation({addLocation}) {
     const [NewLocation, setNewLocation] = useState('');
     return (
         <div>
@@ -13,7 +13,7 @@ function NewLocation(addLocation) {
                 />
             </div>
             <button onClick={()=> {addLocation(NewLocation)
-                setNewLocation=('')
+                setNewLocation('')
             }} className="btn btn-primary mt-2">Add</button>
         </div>
     )
