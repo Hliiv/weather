@@ -1,7 +1,22 @@
-function NewLocation () {
+import { useState } from "react"
+function NewLocation(addLocation) {
+    const [NewLocation, setNewLocation] = useState('');
     return (
-        
+        <div>
+            <h1>New Location</h1>
+            <div>
+                <input
+                    value={NewLocation}
+                    onClick={(event) =>
+
+                        setNewLocation(event.target.value)}
+                />
+            </div>
+            <button onClick={()=> {addLocation(NewLocation)
+                setNewLocation=('')
+            }} className="btn btn-primary mt-2">Add</button>
+        </div>
     )
 
-  const [weather, setWeather] = useState(null);
-  const [selectedCity, setSelectedCity] = useState('');
+}
+export default NewLocation
